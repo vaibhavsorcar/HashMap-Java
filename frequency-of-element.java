@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.*;
 public class program {
     public static void main(String[] args) {
         int[] arr = {10, 5, 10, 15, 10, 5};
@@ -9,9 +7,11 @@ public class program {
 
     static void Frequency(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
+
         for (int num : arr) {
-            map.merge(num, 1, Integer::sum);
+            map.put(num, map.getOrDefault(num, 0) + 1);
         }
-        map.forEach((key, value) -> System.out.println(key + " " + value));
+        map.forEach((key, value) ->
+        System.out.println(key + " " + value));
     }
 }
